@@ -4,7 +4,8 @@
 
 # Todo
 - [ ] Markdown 문법 공부해오기
-- [ ] 7/17, Stack2, Queue1 8문제 
+- [x] ~~7/17, Stack2, Queue1 8문제 ~~
+- [ ] 7/21 Linked List
 
 # Tips
 - 윤홍인
