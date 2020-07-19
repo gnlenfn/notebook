@@ -1,8 +1,8 @@
 def bfs(queue):
-    global num
+   # global num
     if start == goal:
         return
-
+    num = 0
     while queue:
         num += 1    # 간선 1개 이동
         len_q = len(queue)
@@ -16,15 +16,16 @@ def bfs(queue):
                     visited[i] = 1
                     queue.append(i)
         if goal in queue:
-            return
-    num = 0
+            return num
+
 
 T = int(input())
 for test_case in range(1, T+1):
     V, E = map(int, input().split())
+                                         # queue = [  ]
+    matrix  = [[] for _ in range(V+1)]   # [[] [3, 4] [3, 5] [] [6] [] []]
+    visited = [0] * (V+1)                # [0      0 0 1 0 0 0]
 
-    matrix  = [[] for _ in range(V+1)]
-    visited = [0] * (V+1)
 
     # 그래프 생성
     for _ in range(E):
@@ -35,7 +36,7 @@ for test_case in range(1, T+1):
     
     visited[start] = 1 # start node visited
     queue = [start]    # queue.append(start)
-    num = 0            # number of edges
-    bfs(queue)
+    #num = 0            # number of edges
+    res = bfs(queue)
 
-    print(f'#{test_case} {num}')
+    print(f'#{test_case} {res}')

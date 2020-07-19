@@ -10,10 +10,10 @@ def dfs(stack):
                 result += 1
             if visit[i] == 1:
                 continue
-            else:
-                
+            else:                
                 visit[i] = 1
                 stack.append(i)
+
 T = int(input())
 for test_case in range(1, T+1):
     V, E = map(int, input().split())
