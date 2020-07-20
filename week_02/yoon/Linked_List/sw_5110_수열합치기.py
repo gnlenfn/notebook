@@ -7,7 +7,7 @@ class Node:
 """
 현재 노드 --> (self.data, self.link)
 data는 현재 노드의 값
-link는 이전 노드의 주소 
+link는 다음 노드의 주소 
 """
 class LinkedList:
     def __init__(self):
@@ -28,23 +28,23 @@ class LinkedList:
         if self.size == 0:
             return None                     # 맨앞에 삽입
         self.before = self.head             # before를 head로 --> 맨앞에 놓는 다는 뜻
-        self.current = self.head.link       # 현재 노드를 head에 연결
+        self.current = self.head.link       # 현재 노드를 head에 연결 --> head 다음 == 첫 번째 노드
         return self.current.data            # 현재 수열의 첫 번째 값을 return
 
     def next(self):
         self.before = self.current          # current를 before로
-        self.current = self.current.link    # 주소 연결
+        self.current = self.current.link    # 다음 노드로 이동
         if self.current == None:
             return None
         return self.current.data
 
     def insert_list(self, new_list):
         # 문제에서 말하는 첫 숫자보다 큰 숫자를 찾아 삽입
-        insert_num = new_list.first()       
-        num = self.first()                  # 삽입할 수열의 첫 번째 수
+        insert_num = new_list.first()       # 삽입할 수열의 첫 번째 수
+        num = self.first()                  # 현재 수열의 첫 번째 수
         flag = 0
         for _ in range(self.size):
-            if num > insert_num:            # 기존 수열의 수가 새로운 수열의 첫 번째 수보다 크다면
+            if num >= insert_num:            # 기존 수열의 수가 새로운 수열의 첫 번째 수보다 크다면
                 self.before.link = new_list.head.link  # 이전 노드를 새 수열의 헤드와 연결
                 new_list.tail.link = self.current      # 현재 노드를 새 수열의 tail과 연결
                 self.size += new_list.size
@@ -70,14 +70,14 @@ T = int(input())
 for test_case in range(1, T+1):
     n, m = map(int,input().split())
     seq = LinkedList()
-    for i in map(int, input().split()):
+    for i in map(int, input().split()): # 첫 번째 수열 input
         seq.append(i)
 
-    for _ in range(m-1):
+    for _ in range(m-1):                # 두 번째 수열부터
         seq2 = LinkedList()
-        for j in map(int, input().split()):
+        for j in map(int, input().split()):  # get input
             seq2.append(j)
 
-        seq.insert_list(seq2)
+        seq.insert_list(seq2)           # insert 반복 m-1회 만큼
 
     print(f'#{test_case} {seq.print_result()}')
