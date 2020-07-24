@@ -66,5 +66,6 @@ for test_case in range(1, T+1):
         elif task[0] == 'C':
             seq.change(int(task[1]), int(task[2]))
 
-    answer = seq.printResult(l)
+    
+    # answer = seq.printResult(l)
     print(f'#{test_case} {answer}')
