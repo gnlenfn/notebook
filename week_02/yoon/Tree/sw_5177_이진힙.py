@@ -35,4 +35,4 @@ for test_case in range(1, T+1):
     for i in range(n):
         h.append(data[i])
 
-    #print(f"#{test_case} {h.getAnswer()}")
+    print(f"#{test_case} {h.getAnswer()}")
