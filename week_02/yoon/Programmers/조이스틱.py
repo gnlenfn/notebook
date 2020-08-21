@@ -16,15 +16,15 @@ def solution(name):
     answer = 0
 
     for ch in name:
-        idxR = alpha.index(ch)                                          # 알파벳 string에서 몇 번째 index에 있는지 == 위로 이동한횟수
-        idxL = 26 - idxR                                                # 전체 26에서 위로 이동만큼 빼면 아래로 이동한 횟수
-        moveUD = min(idxR, idxL)                                        # 위, 아래 중 작은 수를 더한다
+        idxU = alpha.index(ch)                                          # 알파벳 string에서 몇 번째 index에 있는지 == 위로 이동한횟수
+        idxD = 26 - idxU                                                # 전체 26에서 위로 이동만큼 빼면 아래로 이동한 횟수
+        moveUD = min(idxU, idxD)                                        # 위, 아래 중 작은 수를 더한다
         answer += moveUD
     directionR, directionL = moveLR(name), moveLR(name, 'left')         
 
     answer += min(directionR, directionL)                               # moveLR의 결과 중 작은수 더한다
     return answer
 
-#print(solution("ABAAAAAAAAABB"))
-print(solution("JEROEN"))
-print(solution("JAN"))
+print(solution("ABAAAAAAAAABB"))
+#print(solution("JEROEN"))
+#print(solution("JAN"))
