@@ -9,8 +9,3 @@
 - 나희정
 
 
-### TODO
-- [ ] commit message
-- [x] 디렉토리 형식 및 파일이름 
-- [x] ~~README file 정리하기~~
-- [x] ~~각 주차별로 알게된 팁 정리 (readme로)~~
