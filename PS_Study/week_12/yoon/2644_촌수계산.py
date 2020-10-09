@@ -1,6 +1,7 @@
 # DFS
 from collections import defaultdict
 from collections import deque
+import sys
 
 def find_relations(target1, target2, family):
     step = 0
@@ -21,9 +22,10 @@ def find_relations(target1, target2, family):
     
     return -1
 
-n = int(input())
-target1, target2 = map(int, input().split())
-edges = int(input())
+sys.stdin = open("input.txt", "r")
+n = int(sys.stdin.readline().rstrip())
+target1, target2 = map(int, sys.stdin.readline().split())
+edges = int(sys.stdin.readline().rstrip())
 
 family = defaultdict(set)
 
